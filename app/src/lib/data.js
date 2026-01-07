@@ -4,7 +4,7 @@ export const profile = {
     about: "I’m a junior at MIT studying Electrical Engineering with a focus on optical sciences and photonics. My work centers on the design, simulation, and experimental characterization of optical and laser systems, with experience spanning semiconductor lasers, single-photon optics, and photodetector design.",
     socials: [
         { name: "LinkedIn", url: "https://www.linkedin.com/in/daniel-sanango/" },
-        { name: "Email", url: "mailto:dsanango@mit.edu" } // Inferred from typical MIT emails, can be updated
+        { name: "Email", url: "mailto:danango@mit.edu" } // Inferred from typical MIT emails, can be updated
     ],
     experience: [
         {
