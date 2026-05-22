@@ -12,15 +12,26 @@
 
     onMount(() => {
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                isVisible = true;
-                observer.disconnect();
-            }
-        }, { threshold: 0.1 });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isVisible = true;
+                    observer.disconnect();
+                }
+            });
+        }, { rootMargin: "100px" }); // Trigger a bit earlier before it comes into view
         
         if (projectsSection) {
             observer.observe(projectsSection);
         }
+        
+        // Fallback: if it's already in the viewport on load
+        setTimeout(() => {
+            if (projectsSection && projectsSection.getBoundingClientRect().top < window.innerHeight) {
+                isVisible = true;
+            }
+        }, 100);
+
+        return () => observer.disconnect();
     });
 </script>
 
