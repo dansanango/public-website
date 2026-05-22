@@ -27,6 +27,7 @@
 
     <div class="editor-container">
         <script type="py" editor>
+from pyscript import display
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -44,8 +45,9 @@ ax.set_title("Optical Interference Pattern")
 ax.axis('off')
 
 # Display the figure to the output container below
-display(fig)
+display(fig, target="plot-output")
         </script>
+        <div id="plot-output" style="margin-top: 1rem; text-align: center; background: white; border-radius: 4px; padding: 1rem;"></div>
     </div>
 </body>
 </html>
