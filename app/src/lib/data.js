@@ -84,5 +84,43 @@ export const profile = {
             date: "May 2023",
             description: "Top 1% of accepted engineering applicants to Columbia University's engineering class"
         }
-    ]
+    ],
+    projects: {
+        optics: [
+            {
+                title: "Single-Mode Laser Diodes",
+                description: "Designed and simulated Edge-Emitting Laser Diodes, increasing power output significantly.",
+                image: "/thumb1.png"
+            },
+            {
+                title: "4f MEMS Microscope",
+                description: "Engineered a microscope with MEMs mirror to produce 2D scans of diamonds.",
+                image: "/thumb2.png"
+            }
+        ],
+        code: [
+            {
+                title: "Lab Automation Scripts",
+                description: "Integrated automated control of NI-DAQ and Moku:Pro via Python.",
+                image: "/thumb1.png"
+            },
+            {
+                title: "Telemetry Dashboard",
+                description: "React-based dashboard for real-time solar car telemetry data.",
+                image: "/thumb2.png"
+            }
+        ],
+        for_fun: [
+            {
+                title: "Prism Photography",
+                description: "Experimenting with lasers and prisms to create rainbow refractions.",
+                image: "/thumb2.png"
+            },
+            {
+                title: "Custom PCB Design",
+                description: "Designed a PCB for Raspberry Pi power delivery and CAN bus.",
+                image: "/thumb1.png"
+            }
+        ]
+    }
 };
