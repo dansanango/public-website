@@ -100,9 +100,10 @@ export const profile = {
         ],
         code: [
             {
-                title: "Lab Automation Scripts",
-                description: "Integrated automated control of NI-DAQ and Moku:Pro via Python.",
-                image: "/thumb1.png"
+                title: "Live Python Demo (Lab Scripts)",
+                description: "Click here to try out an interactive, browser-based Python notebook using PyScript!",
+                image: "/thumb1.png",
+                link: "/interactive-demo.html"
             },
             {
                 title: "Telemetry Dashboard",

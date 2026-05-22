@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Interactive Python Demo - Optics</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #030303; color: #f0f0f0; padding: 2rem; max-width: 900px; margin: 0 auto; line-height: 1.6; }
+        h1 { color: #00d2ff; font-family: 'Outfit', sans-serif; margin-bottom: 0.5rem; }
+        .back-link { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; margin-bottom: 2rem; display: inline-block; transition: opacity 0.2s; }
+        .back-link:hover { opacity: 0.7; }
+        .editor-container { margin-top: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: #111; padding: 1rem; }
+        /* Style the pyscript editor container */
+        .py-editor { border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to Portfolio</a>
+    <h1>Live Python Notebook</h1>
+    <p style="color: #888;">This is a live Python environment running entirely in your browser using PyScript! You can edit the code below and press Shift+Enter or click the play button to run it. It may take a moment to load the Python runtime.</p>
+    
+    <py-config>
+        packages = ["matplotlib", "numpy"]
+    </py-config>
+
+    <div class="editor-container">
+        <script type="py" editor>
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulate an optical interference pattern
+x = np.linspace(-10, 10, 500)
+y = np.linspace(-10, 10, 500)
+X, Y = np.meshgrid(x, y)
+R = np.sqrt(X**2 + Y**2)
+Z = np.sin(R) / R
+
+fig, ax = plt.subplots(figsize=(6, 5))
+c = ax.contourf(X, Y, Z, cmap='plasma')
+fig.colorbar(c)
+ax.set_title("Optical Interference Pattern")
+ax.axis('off')
+
+# Display the figure to the output container below
+display(fig)
+        </script>
+    </div>
+</body>
+</html>

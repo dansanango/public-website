@@ -50,15 +50,27 @@
             <div class="project-grid" in:fade={{duration: 300, delay: 100}} out:fade={{duration: 200}}>
                 {#if profile.projects[activeTab]}
                     {#each profile.projects[activeTab] as project}
-                        <div class="project-card">
-                            <div class="project-image-wrapper">
-                                <img src="{project.image}" alt="{project.title}" class="project-image" loading="lazy" />
+                        {#if project.link}
+                            <a href={project.link} class="project-card" style="text-decoration: none; color: inherit;">
+                                <div class="project-image-wrapper">
+                                    <img src="{project.image}" alt="{project.title}" class="project-image" loading="lazy" />
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">{project.title}</h3>
+                                    <p class="project-desc">{project.description}</p>
+                                </div>
+                            </a>
+                        {:else}
+                            <div class="project-card">
+                                <div class="project-image-wrapper">
+                                    <img src="{project.image}" alt="{project.title}" class="project-image" loading="lazy" />
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">{project.title}</h3>
+                                    <p class="project-desc">{project.description}</p>
+                                </div>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">{project.title}</h3>
-                                <p class="project-desc">{project.description}</p>
-                            </div>
-                        </div>
+                        {/if}
                     {/each}
                 {/if}
             </div>
