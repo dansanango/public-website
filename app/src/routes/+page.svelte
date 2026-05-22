@@ -1,11 +1,27 @@
 <script>
     import { profile } from '$lib/data';
+    import { onMount } from 'svelte';
     
     let activeTab = 'optics';
+    let isVisible = false;
+    let projectsSection;
     
     function setTab(tab) {
         activeTab = tab;
     }
+
+    onMount(() => {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                isVisible = true;
+                observer.disconnect();
+            }
+        }, { threshold: 0.1 });
+        
+        if (projectsSection) {
+            observer.observe(projectsSection);
+        }
+    });
 </script>
 
 <svelte:head>
@@ -13,19 +29,21 @@
 </svelte:head>
 
 <section class="hero">
-    <div class="headshot-container rainbow-glow">
-        <img src="/headshot.png" alt="{profile.name}" class="headshot" />
+    <div class="hero-image-col">
+        <div class="headshot-container rainbow-glow">
+            <img src="/headshot.png" alt="{profile.name}" class="headshot" />
+        </div>
     </div>
-    
-    <h1 class="hero-title">{profile.name}</h1>
-    <h2 class="hero-subtitle rainbow-text">{profile.title}</h2>
-    
-    <p style="margin-top: 2rem; color: var(--text-secondary); max-width: 600px; font-size: 1.1rem; line-height: 1.8;">
-        {profile.about}
-    </p>
+    <div class="hero-text-col">
+        <h1 class="hero-title">{profile.name}</h1>
+        <h2 class="hero-subtitle rainbow-text">{profile.title}</h2>
+        <p class="hero-desc">
+            {profile.about}
+        </p>
+    </div>
 </section>
 
-<section id="projects" style="margin-top: 4rem;">
+<section id="projects" bind:this={projectsSection} class="projects-section {isVisible ? 'is-visible' : ''}">
     <div class="tabs">
         <button 
             class="tab-btn {activeTab === 'optics' ? 'active' : ''}" 
