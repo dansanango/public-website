@@ -4,6 +4,12 @@
     let { children } = $props();
 </script>
 
+<div class="background-beams">
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+    <div class="beam beam-3"></div>
+</div>
+
 <div class="container">
     <main>
         {@render children()}
