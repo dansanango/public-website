@@ -1,5 +1,6 @@
 <script>
     import { profile } from '$lib/data';
+    import { fade } from 'svelte/transition';
     
     let activeTab = 'optics';
     
@@ -44,19 +45,23 @@
         </button>
     </div>
 
-    <div class="project-grid">
-        {#if profile.projects[activeTab]}
-            {#each profile.projects[activeTab] as project}
-                <div class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="{project.image}" alt="{project.title}" class="project-image" />
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">{project.title}</h3>
-                        <p class="project-desc">{project.description}</p>
-                    </div>
-                </div>
-            {/each}
-        {/if}
+    <div class="project-grid-wrapper">
+        {#key activeTab}
+            <div class="project-grid" in:fade={{duration: 300, delay: 100}} out:fade={{duration: 200}}>
+                {#if profile.projects[activeTab]}
+                    {#each profile.projects[activeTab] as project}
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="{project.image}" alt="{project.title}" class="project-image" loading="lazy" />
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">{project.title}</h3>
+                                <p class="project-desc">{project.description}</p>
+                            </div>
+                        </div>
+                    {/each}
+                {/if}
+            </div>
+        {/key}
     </div>
 </section>

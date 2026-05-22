@@ -85,9 +85,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes moveBeams {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20%, 10%) scale(1.2); }
-  100% { transform: translate(-10%, 20%) scale(0.9); }
+  0% { transform: translate(0, 0) scale(1); filter: blur(120px) hue-rotate(0deg); }
+  50% { transform: translate(20%, 10%) scale(1.2); filter: blur(120px) hue-rotate(90deg); }
+  100% { transform: translate(-10%, 20%) scale(0.9); filter: blur(120px) hue-rotate(180deg); }
 }
 
 /* Hero Section */
@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .headshot {
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
   height: auto;
   object-fit: contain;
   border-radius: 12px;

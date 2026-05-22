@@ -11,19 +11,20 @@
 </div>
 
 <div class="container">
+    <header style="display: flex; justify-content: flex-end; gap: 1.5rem; padding: 1rem 0 2rem;">
+        {#each profile.socials as social}
+            <a href={social.url} target="_blank" rel="noreferrer" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s ease;">
+                {social.name}
+            </a>
+        {/each}
+    </header>
+
     <main>
         {@render children()}
     </main>
 
-    <footer style="margin-top: 6rem; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <footer style="margin-top: 6rem; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--glass-border); padding-top: 2rem; padding-bottom: 2rem;">
         <span>© {new Date().getFullYear()} {profile.name}</span>
-        <div style="display: flex; gap: 1.5rem;">
-            {#each profile.socials as social}
-                <a href={social.url} target="_blank" rel="noreferrer" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease;">
-                    {social.name}
-                </a>
-            {/each}
-        </div>
     </footer>
 </div>
 
